@@ -13,6 +13,9 @@ docker push eu.gcr.io/divine-arcade-95810/haproxy
 # 1236  07/03/16 14:49:01 kubectl get rc,services --namespace=kube-system
 # 1237  07/03/16 14:55:21 gcloud container clusters get-credentials qa -z europe-west1-d
 
-
-
-for i in development qa production; do gcloud container clusters get-credentials $i -z europe-west1-d && kubectl replace -f rc.yaml; done
+for i in development qa production
+do
+  gcloud container clusters get-credentials $i -z europe-west1-d
+  kubectl replace -f rc.yaml
+  kubectl replace -f service-$i.yaml
+done

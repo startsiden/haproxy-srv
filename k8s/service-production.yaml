@@ -6,6 +6,7 @@ metadata:
   labels:
     k8s-app: haproxy
 spec:
+  loadBalancerIP: 104.155.88.242
   ports:
   - port: 80
     targetPort: 80
@@ -13,4 +14,3 @@ spec:
   selector:
     k8s-app: haproxy
   type: LoadBalancer
-  loadBalancerIP: 104.155.88.242
