@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: haproxyservice
+  namespace: kube-system
+  labels:
+    k8s-app: haproxy
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+  selector:
+    k8s-app: haproxy
+  type: LoadBalancer
+  loadBalancerIP: 146.148.116.54
