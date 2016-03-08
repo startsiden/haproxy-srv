@@ -10,7 +10,8 @@ docker push eu.gcr.io/divine-arcade-95810/haproxy
 for i in development qa production
 do
   gcloud container clusters get-credentials $i -z europe-west1-d
-  kubectl replace -f rc.yaml
+  kubectl delete -f rc.yaml
+  kubectl create -f rc.yaml
   kubectl apply -f service-$i.yaml
 done
 # tips and tricks
