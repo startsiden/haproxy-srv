@@ -13,3 +13,4 @@ spec:
   selector:
     k8s-app: haproxy
   type: LoadBalancer
+  loadBalancerIP: 104.155.88.242
